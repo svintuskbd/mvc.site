@@ -8,3 +8,5 @@
 ?>
 <h1><?php echo $data['title']; ?></h1>
 <p><?php echo $data['content']; ?></p>
+
+<p><a href="/blog/update?<?= $data['url'] ?>">Update</a></p>

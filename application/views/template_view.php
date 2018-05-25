@@ -8,7 +8,7 @@
     <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css"/>
     <link href="http://fonts.googleapis.com/css?family=Kreon" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" type="text/css" href="/css/style.css"/>
-    <script src="/js/jquery-1.6.2.js" type="text/javascript"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
         // return a random integer between 0 and number
         function random(number) {

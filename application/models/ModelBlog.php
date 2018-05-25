@@ -36,4 +36,43 @@ class ModelBlog extends Model
 
         return $result_one;
     }
+
+    public function updateByUrl($url, $postRequest)
+    {
+        $filePath = null;
+
+        if (isset($_FILES)) {
+            $filePath = $this->saveImage();
+        }
+
+        if ($filePath != null) {
+            $article = $this->getContentOneNews($url);
+            if ($article['image']) {
+                unlink(__DIR__ . '/../../' . $article['image']);
+            }
+        }
+
+        $title = $postRequest["title"];
+        $content = $postRequest["content"];
+
+        $sql = "UPDATE posts SET title='$title', content='$content', image='$filePath' 
+                WHERE url='$url'";
+
+        if (mysqli_query($this->connect(), $sql)) {
+            return true;
+        } else {
+            return mysqli_error($this->connect());
+        }
+    }
+
+    public function delImage($filePath)
+    {
+        if ($filePath != null) {
+            if (file_exists($filePath)) {
+                return unlink(__DIR__ . '/../../' . $filePath);
+            }
+
+            return false;
+        }
+    }
 }
